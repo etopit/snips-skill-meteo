@@ -178,7 +178,7 @@ def parse_open_weather_map_forecast_response(response, location, time, conf):
         "containsNow": contains_now,
         "here": here,
         "moreThanADay": more_than_a_day,
-        "inLocation": " à {0}".format(location) if location else "",         
+        "inLocation": " a {0}".format(location) if location else "",         
         "temperature": int(target_period_forecasts[0]["main"]["temp"]),
         "temperatureMin": int(min(all_min)),
         "temperatureMax": int(max(all_max)),
@@ -226,7 +226,7 @@ def intent_received(hermes, intent_message):
                 sentence += "."
 
                 if weather_forecast["rainTime"] and not weather_forecast["moreThanADay"]:
-                    sentence += " Il risque de pleuvoir à {0}.".format(verbalise_hour(weather_forecast["rainTime"]))
+                    sentence += " Il risque de pleuvoir a {0}.".format(verbalise_hour(weather_forecast["rainTime"]))
 
         hermes.publish_end_session(intent_message.session_id, sentence)
 
